@@ -16,7 +16,10 @@ let sortObject = {
 
         return a - b;
     },
-    date: function() {
-        console.log('sorting function not yet defined');
+    date: function(a, b) {
+        a = new Date(a);
+        b = new Date(b);
+        
+        return a - b;
     }
 }
