@@ -1,7 +1,6 @@
 let sortObject = {
     name: function(a, b) {
-        a = $(a).find('td').eq(0).text();   // using jQ selector to use jQ methods
-        b = $(b).find('td').eq(0).text();   // using jQ selector to use jQ methods
+        
 
         if (a < b) {
             return -1;
@@ -10,9 +9,9 @@ let sortObject = {
         }
     },
     duration: function () {
-
+        console.log('sorting function not yet defined');
     },
     date: function() {
-        
+        console.log('sorting function not yet defined');
     }
 }

@@ -7,13 +7,18 @@ $(function() {
 
     // click event on the column header
     $('tr').on('click', 'th', function() {
-
-        $headerName = $(this).data('sort');
-        // console.log($headerName);
-        // console.log($(this).val());
+        $headerName = $(this).data('sort');     // function name to call
+        $columnIndex = $('th').index(this);     // column number
+        
+        console.log(`clicked on column ${$columnIndex}`);
 
         // calling sorting function from sortObject.js
-        rows.sort(sortObject.name);
+        rows.sort(function(a, b) {
+            a = $(a).find('td').eq($columnIndex).text();   // using jQ selector to use jQ methods
+            b = $(b).find('td').eq($columnIndex).text();   // using jQ selector to use jQ methods
+
+            return sortObject[$headerName](a, b);
+        });
 
         // appends the sorted arrays of rows to the table body
         $('tbody').append(rows);
