@@ -7,26 +7,15 @@ $(function() {
 
     // click event on the column header
     $('tr').on('click', 'th', function() {
-        console.log('clicked on the "' + $(this).data('sort') + '" header');
 
         $headerName = $(this).data('sort');
         // console.log($headerName);
         // console.log($(this).val());
 
-        rows.sort( function(a, b) {
-            a = $(a).find('td').eq(0).text();
-            b = $(b).find('td').eq(0).text();
+        // calling sorting function from sortObject.js
+        rows.sort(sortObject.name);
 
-            console.log('a', a);
-            console.log('b', b);
-
-            if (a < b) {
-                return -1;
-            } else {
-                return a > b ? 1 : 0;
-            }
-        });
-        console.log(rows[0]);
+        // appends the sorted arrays of rows to the table body
         $('tbody').append(rows);
 
     })
